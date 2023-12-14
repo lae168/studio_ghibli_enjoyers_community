@@ -5,6 +5,8 @@ import { useNavigate, Link } from "react-router-dom";
 //context
 import { useAuth } from "../contexts/AuthContext";
 
+import InputField from "./InputField";
+
 const Login = () => {
   //hooks to keep login data
   const [email, setEmail] = useState("");
@@ -19,9 +21,7 @@ const Login = () => {
   //Log in function
   const handleLogin = async () => {
     try {
-
-
-      if (!email || !password ) {
+      if (!email || !password) {
         alert("Please fill in all fields.");
         return;
       }
@@ -56,29 +56,20 @@ const Login = () => {
     shadow-md text-center w-64 bg-gradient-to-r from-purple-300 to-pink-400 animate-gradient"
     >
       <h2 className="mb-5 text-lg flex mx-10 text-cyan-200">Login Page</h2>
-      <div>
-        <label className="flex font-bold  ml-20 text-sm  text-cyan-200">
-          Email:
-        </label>
-        <input
-          className="w-40 mb-5 border border-solid border-gray-300 rounded-md"
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
 
-      <div>
-        <label className="flex font-bold  ml-20 text-sm  text-cyan-200">
-          Password:
-        </label>
-        <input
-          className="w-40   border border-solid border-gray-300 rounded-md"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
+      <InputField
+        label="Email"
+        type="text"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+
+      <InputField
+        label="Password"
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
 
       <br />
       <button

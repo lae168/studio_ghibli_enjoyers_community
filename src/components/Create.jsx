@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import axios from "axios";
 //context
 import { useAuth } from "../contexts/AuthContext";
+import InputField from "./InputField";
 
 const PostCreate = () => {
   // user data from AuthContext
@@ -57,24 +58,19 @@ const PostCreate = () => {
 
   return (
     <div
-      className="block mx-auto my-10 p-2  border border-solid border-gray-300 font-bold
+      className="block mx-auto my-10 p-2  border rounded-lg border-y-2 border-cyan-300 font-bold
     shadow-md text-center w-64 bg-gradient-to-r from-purple-300 to-pink-400 animate-gradient"
     >
       <h2 className="mb-3 text-lg flex mx-10 text-cyan-200">
         Create a New Post
       </h2>
       <form>
-        <div>
-          <label className="flex font-bold  ml-20 text-sm  text-cyan-200">
-            Title:
-          </label>
-          <input
-            className="w-40 mb-5 border border-solid border-gray-300 rounded-md"
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </div>
+        <InputField
+          label="Title"
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
 
         <div>
           <label className="flex font-bold  ml-20 text-sm  text-cyan-200">
@@ -105,29 +101,19 @@ const PostCreate = () => {
           </select>
         </div>
 
-        <div>
-          <label className="flex font-bold  ml-20 text-sm  text-cyan-200">
-            Comment:{" "}
-          </label>
-          <input
-            className="w-40 mb-5 border border-solid border-gray-300 rounded-md"
-            type="text"
-            value={comment}
-            onChange={(e) => setComment(e.target.value)}
-          />
-        </div>
+        <InputField
+          label="Comment"
+          type="text"
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
+        />
 
-        <div>
-          <label className="flex font-bold  ml-20 text-sm  text-cyan-200">
-            Image URL:{" "}
-          </label>
-          <input
-            className="w-40 mb-5 border border-solid border-gray-300 rounded-md"
-            type="text"
-            value={image}
-            onChange={(e) => setImage(e.target.value)}
-          />
-        </div>
+        <InputField
+          label="Img Url"
+          type="text"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
+        />
 
         <button
           type="button"
