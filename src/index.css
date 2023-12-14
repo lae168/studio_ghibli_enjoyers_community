@@ -1,0 +1,21 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+nav {
+  background-color: rgb(237, 191, 237);
+  padding: 15px;
+  display: flex;
+  justify-content: space-around;
+  
+  
+}
+nav a{
+  padding: 10px;
+  color:black;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 400;
+  font-size: large;
+}
+
+
