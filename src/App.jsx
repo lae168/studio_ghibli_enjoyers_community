@@ -10,7 +10,7 @@ import {
 import "./App.css";
 
 //components
-import PostPage from "./components/PostPage";
+import PostPage from "./components/postRender/PostPage";
 import RootLayoutPage from "./components/RootLayputPage";
 import Login from "./components/Login";
 import Profile from "./components/Profile";

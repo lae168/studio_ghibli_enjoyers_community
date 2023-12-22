@@ -1,7 +1,6 @@
 //React
 import React, { useState } from "react";
-// to naviagte from page tp page
-import { useNavigate, Link } from "react-router-dom";
+
 //context
 import { useAuth } from "../contexts/AuthContext";
 
