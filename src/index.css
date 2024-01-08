@@ -18,4 +18,50 @@ nav a{
   font-size: large;
 }
 
+.nav-menu {
+  background: linear-gradient(to right, #8B5CF6, #FF7BAC); /* Replace with your own gradient colors */
+  animation: gradientAnimation 2s infinite;
+  width: 200px;
+  height: 500vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: -5px;
+  left: -200%;
+  transition: 850ms;
+}
+
+.nav-menu.active {
+  left: 0;
+  transition: 350ms;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 1200px) {
+  /* Styles for smaller screens */
+  .nav-menu.active {
+  
+    display: none;
+  }
+
+}
+
+
+
+/* Media query for screens 1200px and above */
+/* Default styles for the sidebar icon */
+.sidebar-icon {
+  /* Your default styles here */
+  display: inline-block; /* Display the icon by default */
+}
+
+/* Media query for screens 1200px and below */
+@media screen and (max-width: 1200px) {
+  .sidebar-icon {
+    display: none; /* Hide the icon when the width is 1200px and below */
+  }
+}
+
+
+
 

@@ -11,11 +11,11 @@ import "./App.css";
 
 //components
 import PostPage from "./components/postRender/PostPage";
-import RootLayoutPage from "./components/RootLayputPage";
+import RootLayoutPage from "./components/navbarRender/RootLayputPage";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
 import Home from "./components/Home";
-import PostDetailPage from "./components/PostDetailPage";
+import PostDetailPage from "./components/detail/PostDetailPage";
 import UserDetailPage from "./components/UserDetailPage";
 import Register from "./components/Register";
 import PostCreate from "./components/Create";

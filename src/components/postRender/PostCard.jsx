@@ -6,7 +6,7 @@ import { highlightSearchKeyword } from "./HighlightedTextComponent"; // Import t
 const PostCard = ({ post, search, onEdit, onDelete }) => (
   <div
     key={post.id}
-    className="relative border border-t-4 border-gradient rounded-lg p-4 mx-auto my-4 bg-gradient-to-r from-purple-300 to-pink-400 animate-gradient shine-light"
+    className="relative border border-t-4 border-gradient rounded-lg p-4  my-4 shine-light bg-gradient-to-r from-purple-300 to-pink-400 animate-gradient"
   >
     <p className="text-sm font-semibold">
       <img
@@ -16,12 +16,12 @@ const PostCard = ({ post, search, onEdit, onDelete }) => (
       />
       <Link
         to={`/posts/${post.id}`}
-        className="text-purple-500 hover:underline cursor-pointer"
+        className="text-purple-500 hover: underline-offset-2 cursor-pointer text-base"
       >
         {highlightSearchKeyword(post.title, search)}
       </Link>
     </p>
-    <p className="text-sm font-semibold">
+    <p className="text-sm font-semibold overflow-ellipsis overflow-hidden max-h-10">
       {highlightSearchKeyword(post.body, search)}
     </p>
     <p className="text-sm font-semibold"> Posted by {post.user}</p>

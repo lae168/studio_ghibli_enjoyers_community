@@ -6,9 +6,10 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 //Context
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../../contexts/AuthContext";
 
-
+//component
+import DetailItem from "./DetailItem";
 
 function PostDetailPage() {
   const { postId } = useParams();
@@ -31,7 +32,6 @@ function PostDetailPage() {
       setSelectedComment(comment);
     }
   };
-
 
   const handleEditComment = async () => {
     try {
@@ -57,9 +57,12 @@ function PostDetailPage() {
       console.log(editedText); // Log the updated comment text
 
       // Make an API call to update the comment
-      await axios.patch(`http://localhost:3030/comments/${selectedComment.id}`, {
-        comment: editedText,
-      });
+      await axios.patch(
+        `http://localhost:3030/comments/${selectedComment.id}`,
+        {
+          comment: editedText,
+        }
+      );
 
       // Update the comment in the post
       const updatedComments = post.comment.map((c) =>
@@ -127,7 +130,7 @@ function PostDetailPage() {
       });
 
       // Fetch updated post details including the new comment
-       await  fetchPostDetails();
+      await fetchPostDetails();
     } catch (error) {
       console.error("Error adding comment:", error);
     }
@@ -163,9 +166,6 @@ function PostDetailPage() {
     }
   };
 
-  
-  
-
   if (!post) {
     return <div>Loading...</div>;
   }
@@ -177,42 +177,21 @@ function PostDetailPage() {
         border-cyan-300 font-bold bg-gradient-to-r from-purple-300 to-pink-400 animate-gradient 
     shadow-md text-center w-64 "
       >
-        <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div className="w-100 border rounded-lg border-y-2">
           <img
             src={post.image}
-            className="overflow-hidden w-20 h-30 bg-gray-300 rounded-lg"
+            className="overflow-hidden w-50 h-50 bg-gray-300 rounded-lg"
           />
         </div>
         <div>
-          <h2 className="mb-3 mt-10 text-lg flex mx-3 text-cyan-200">
+          <h2 className="mb-3 mt-5 text-lg flex mx-3 text-cyan-200">
             This is Post Detail Page
           </h2>
 
-          <label className="flex font-bold  ml-5  text-sm  text-cyan-200">
-            Title:
-            <div className="w-35 mb-5 ml-2 border-gray-300 rounded-md">
-              {post.title}
-            </div>
-          </label>
-
-          <label className="flex font-bold  ml-5  text-sm  text-cyan-200">
-            Body:
-            <div className="w-40 mb-5  ml-2  border-gray-300 rounded-md">
-              {post.body}
-            </div>
-          </label>
-
-          <label className="flex font-bold  ml-5  text-sm  text-cyan-200">
-            Category:
-            <div className="w-35 mb-5  ml-2 border-gray-300 ">
-              {post.category}
-            </div>
-          </label>
-
-          <label className="flex font-bold  ml-5  text-sm  text-cyan-200">
-            Posted by:
-            <div className="w-35 mb-5 ml-2  border-gray-300 ">{post.user}</div>
-          </label>
+          <DetailItem label="Title" value={post.title} />
+          <DetailItem label="Body" value={post.body} width="w-40" />
+          <DetailItem label="Category" value={post.category} />
+          <DetailItem label="Posted by" value={post.user} />
         </div>
       </div>
 
@@ -234,31 +213,35 @@ function PostDetailPage() {
                 {comment.user}
               </Link>
             </p>
-            <p className="text-sm font-semibold">{comment.comment}</p>
-            <p className="text-sm text-gray-500">
+            <p
+              className="text-sm font-semibold text-left "
+              style={{ maxWidth: "200px" }}
+            >
+              {comment.comment}
+            </p>
+
+            <p className="text-sm text-gray-500 ">
               Posted on: November 25, 2023
             </p>
 
             {/* Conditionally render the small icon at the top-right */}
             {user && comment.user === user.name && (
-  <svg
-    className="absolute top-1 right-1 w-4 h-4 cursor-pointer"
-    onClick={() => toggleSelectedComment(comment)}
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="red"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="2"
-      d="M4 6h16M4 12h16m-7 6h7"
-    />
-  </svg>
-)}
-
-
+              <svg
+                className="absolute top-1 right-1 w-4 h-4 cursor-pointer"
+                onClick={() => toggleSelectedComment(comment)}
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="red"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
+              </svg>
+            )}
           </div>
         ))}
 
@@ -267,9 +250,7 @@ function PostDetailPage() {
           <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 border border-gray-300 rounded-md">
             <button
               className="mr-2 px-2 py-1 bg-blue-500 text-white rounded-md"
-              onClick={
-                handleEditComment
-              }
+              onClick={handleEditComment}
             >
               Edit
             </button>

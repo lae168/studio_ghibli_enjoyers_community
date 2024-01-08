@@ -1,5 +1,6 @@
 //React
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 //axios
 import axios from "axios";
 //context
@@ -15,6 +16,11 @@ const PostCreate = () => {
   const [category, setCategory] = useState("Tech");
   const [comment, setComment] = useState("");
   const [image, setImage] = useState("");
+  const navigator = useNavigate();
+  const handleButtonClick = () => {
+    // Use navigate(-1) to navigate back
+    navigator(-1);
+  };
 
   //creating new post
   const handlePostCreate = async () => {
@@ -97,7 +103,6 @@ const PostCreate = () => {
             <option value="Bussiness">Bussiness</option>
             <option value="Programming">Programming</option>
             <option value="Other">Other</option>
-            {/* Add other categories as needed */}
           </select>
         </div>
 
@@ -122,6 +127,16 @@ const PostCreate = () => {
         >
           Create Post
         </button>
+
+        <div>
+          <button
+            type="button"
+            onClick={handleButtonClick}
+            className="w-85 px-5 mb-6 font-mono text-md bg-slate-600 text-cyan-200 border-none rounded-sm cursor-pointer"
+          >
+            back
+          </button>
+        </div>
       </form>
     </div>
   );

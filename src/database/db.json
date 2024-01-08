@@ -260,13 +260,6 @@
       "userId": 8,
       "comment": [
         {
-          "id": 11,
-          "comment": "Enjoyed reading this!",
-          "postId": 7,
-          "userId": 7,
-          "user": "Bruno"
-        },
-        {
           "postId": 8,
           "userId": 10,
           "user": "Niki",
@@ -425,12 +418,6 @@
       "comment": "Interesting discussion!",
       "userId": 9,
       "user": "Ariana"
-    },
-    {
-      "id": 11,
-      "comment": "Enjoyed reading this!",
-      "userId": 7,
-      "user": "Bruno"
     },
     {
       "id": 13,

@@ -16,7 +16,7 @@ const PostCardWithUser = ({
 }) => (
   <div
     key={post.id}
-    className="relative border border-t-4 border-gradient rounded-lg p-4 mx-auto my-4 shine-light bg-gradient-to-r from-purple-300 to-pink-400 animate-gradient"
+    className="relative border border-t-4 border-gradient rounded-lg p-4  my-4 shine-light bg-gradient-to-r from-purple-300 to-pink-400 animate-gradient"
   >
     <p className="text-sm font-semibold">
       {post.userId === user.id && (
@@ -30,33 +30,29 @@ const PostCardWithUser = ({
       <img
         src={post.image}
         alt={`Image for ${post.title}`}
-        style={{ maxWidth: "100%" }}
+        style={{ minWidth: "100%" }}
       />
       <Link
         to={`/posts/${post.id}`}
-        className="text-purple-500 hover:underline cursor-pointer"
+        className="text-purple-500 hover:underline cursor-pointer text-base"
       >
         {highlightSearchKeyword(post.title, search)}
       </Link>
     </p>
-    <p className="text-sm font-semibold">
+    <p className="text-sm font-semibold overflow-ellipsis overflow-hidden max-h-10">
       {highlightSearchKeyword(post.body, search)}
     </p>
-    <p className="text-sm font-semibold">
-      {post.userId === user.id ? (
-        "Posted by you"
-      ) : (
-        <>
-          Posted by{" "}
-          <NavLink
-            to={`/users/${post.userId}`}
-            className="text-purple-500 hover:underline cursor-pointer"
-          >
-            {post.user}
-          </NavLink>
-        </>
-      )}
-    </p>
+
+    {post.userId === user.id ? (
+      <p className="text-sm font-semibold">"Posted by you" </p>
+    ) : (
+      <>
+        <p className="text-sm font-semibold text-purple-500 hover:underline cursor-pointer">
+          <Link to={`/users/${post.userId}`}>Posted by {post.user}</Link>
+        </p>
+      </>
+    )}
+
     {selectedPost === post && (
       <div className="absolute top-8 right-2 bg-white p-2 border border-gray-300 rounded-md">
         {editedPost.title && editedPost.body ? (

@@ -3,7 +3,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 // Context
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../../contexts/AuthContext";
 
 const UserStatus = () => {
   const { user, logout } = useAuth();
@@ -22,7 +22,6 @@ const UserStatus = () => {
       },
     };
   };
-  
 
   // if user is logged in, show user name,profile picture and log out button ,
   // if not, show log in button
@@ -32,21 +31,30 @@ const UserStatus = () => {
     <div className="flex items-center space-x-4">
       {user ? (
         <>
-
-        <NavLink style={activeStyle} to="/create" className="hidden sm:inline-block">
-          Create Posts
-        </NavLink>
+          <NavLink
+            style={activeStyle}
+            to="/create"
+            className="hidden sm:inline-block"
+          >
+            Create Posts
+          </NavLink>
           <NavLink to="/profile">
             {user.image && (
               <img
                 src={user.image}
                 alt="User"
-                style={{ width: "30px", borderRadius: "50%" }}
+                style={{
+                  width: "30px",
+                  borderRadius: "50%",
+                }}
+                className="hover:opacity-30  duration-600"
               />
             )}
           </NavLink>
 
-          <span className="font-semibold mr-20 hidden sm:inline-block">{user.name}</span>
+          <span className="font-semibold mr-20 hidden sm:inline-block">
+            {user.name}
+          </span>
           <button
             onClick={logout}
             className="bg-slate-500 text-white px-3 py-1 rounded hidden sm:inline-block"

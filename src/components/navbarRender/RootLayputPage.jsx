@@ -5,7 +5,7 @@ import NavBar from "./NavBar";
 
 function RootLayoutPage() {
   return (
-    <div className="pt-0 mt-[-3%] ml-[-10%] mr-[-3%]">
+    <div className="pt-0 mt-[-3%]  mr-[-3%] ">
       <NavBar />
 
       <Outlet />

@@ -17,7 +17,7 @@ function Home() {
           to="/posts"
           className="w-85  px-5  mb-6 font-mono text-md  text-cyan-400 border-none rounded-sm cursor-pointer"
         >
-          ---->
+          -----
         </Link>
       </span>
     </div>

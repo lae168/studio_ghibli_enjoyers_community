@@ -13,7 +13,7 @@ const PostGrid = ({
   editedPost,
   search,
 }) => (
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto w-full sm:w-[80%] lg:w-[60%]">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto  w-full sm:w-[80%] lg:w-[60%]">
     {posts
       .filter((post) => post.body.includes(search))
       .map((post) => (

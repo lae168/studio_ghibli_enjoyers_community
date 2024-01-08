@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 
 import InputField from "./InputField";
+import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
   //hooks to keep login data
