@@ -3,7 +3,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 // Context
-import { useAuth } from "../../contexts/AuthContext";
+import { useAuth } from "@/contexts/AuthContext";
 
 const UserStatus = () => {
   const { user, logout } = useAuth();

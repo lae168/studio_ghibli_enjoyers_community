@@ -1,7 +1,7 @@
 // PostCard.js
 import React from "react";
 import { Link } from "react-router-dom";
-import { highlightSearchKeyword } from "./HighlightedTextComponent"; // Import the highlightSearchKeyword function
+import { highlightSearchKeyword } from "@/components/postRender/HighlightedTextComponent"; // Import the highlightSearchKeyword function
 
 const PostCard = ({ post, search, onEdit, onDelete }) => (
   <div

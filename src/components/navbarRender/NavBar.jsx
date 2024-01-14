@@ -3,12 +3,12 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 // component for user status
-import UserStatus from "./UserStatus";
+import UserStatus from "@/components/navbarRender/UserStatus";
 
 //context
-import { useTheme } from "../../contexts/ThemeContext";
-import Sidebar from "../Sidebar";
-import { useAuth } from "../../contexts/AuthContext";
+import { useTheme } from "@/contexts/ThemeContext";
+
+import { useAuth } from "@/contexts/AuthContext";
 
 const NavBar = () => {
   const { theme, toggleTheme } = useTheme();

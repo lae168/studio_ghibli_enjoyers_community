@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import UserStatus from "./navbarRender/UserStatus";
+
 
 const Sidebar = () => {
   const [sidebarVisible, setSidebarVisible] = useState(false);

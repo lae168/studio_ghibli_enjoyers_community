@@ -2,7 +2,7 @@
 import React from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 //context
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "@/contexts/AuthContext";
 
 //Axios for data fetching
 import axios from "axios";

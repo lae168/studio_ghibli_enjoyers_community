@@ -6,7 +6,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 //Context
-import { useAuth } from "../../contexts/AuthContext";
+import { useAuth } from "@/contexts/AuthContext";
 
 //component
 import DetailItem from "./DetailItem";

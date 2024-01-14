@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 //axios
 import axios from "axios";
 //context
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "@/contexts/AuthContext";
 import InputField from "./InputField";
 
 const PostCreate = () => {

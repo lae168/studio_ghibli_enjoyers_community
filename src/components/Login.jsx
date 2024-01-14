@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 
 //context
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "@/contexts/AuthContext";
 
-import InputField from "./InputField";
+import InputField from "@/components/InputField.jsx";
 import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {

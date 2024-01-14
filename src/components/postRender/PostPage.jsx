@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 //context
-import { useAuth } from "../../contexts/AuthContext";
+import { useAuth } from "@/contexts/AuthContext";
 
 //component
 import PostCard from "./PostCard";
